@@ -18,5 +18,28 @@
       "prijs": "99.99",
       "gerechtNummer": "20211229PH"
     }
+  ],
+  "personeel": [
+    {
+      "id": 1,
+      "voornaam": "Arne",
+      "achternaam": "Hus",
+      "functie": "Keuken",
+      "personeelsnummer": "K20211230AH"
+    },
+    {
+      "id": 2,
+      "voornaam": "Toon",
+      "achternaam": "Staes",
+      "functie": "Keuken",
+      "personeelsnummer": "K20211230TS"
+    },
+    {
+      "id": 3,
+      "voornaam": "Niels",
+      "achternaam": "Verheyen",
+      "functie": "Zaal",
+      "personeelsnummer": "Z20211230NV"
+    }
   ]
 }
