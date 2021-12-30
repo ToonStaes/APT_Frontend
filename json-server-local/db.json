@@ -1,0 +1,22 @@
+{
+  "gerechten": [
+    {
+      "_id": "string",
+      "naam": "Pizza margherita",
+      "prijs": "9.50",
+      "gerechtNummer": "20211229PM"
+    },
+    {
+      "_id": "string2",
+      "naam": "Pizza salami",
+      "prijs": "11.00",
+      "gerechtNummer": "20211229PS"
+    },
+    {
+      "_id": "string3",
+      "naam": "Pizza Hawaï",
+      "prijs": "99.99",
+      "gerechtNummer": "20211229PH"
+    }
+  ]
+}
