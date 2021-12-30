@@ -1,1 +1,43 @@
-<p>personeel-list works!</p>
+<h1 class="mt-3 text-center">Personeel</h1>
+<hr>
+
+<mat-form-field appearance="fill" class="mb-3">
+  <mat-select [(value)]="selected">
+    <mat-option value="all">Iedereen</mat-option>
+    <mat-option value="keuken">Keukenpersoneel</mat-option>
+    <mat-option value="zaal">Zaalpersoneel</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<div class="row header">
+  <p class="col-6 col-sm-10">Naam</p>
+  <p class="col-6 col-sm-2">Functie</p>
+</div>
+
+<div *ngIf="selected == 'all'">
+  <div *ngFor="let personeelslid of personeel" class="row">
+    <p class="col-6 col-sm-10">
+      {{ personeelslid.voornaam }} {{ personeelslid.achternaam }}
+    </p>
+    <p class="col-6 col-sm-2">{{ personeelslid.functie }}</p>
+    <hr>
+  </div>
+</div>
+
+<div *ngIf="selected == 'keuken'">
+  <div *ngFor="let personeelslid of keukenPersoneel" class="row">
+    <p class="col-6 col-sm-10">
+      {{ personeelslid.voornaam }} {{ personeelslid.achternaam }}
+    </p>
+    <p class="col-6 col-sm-2">{{ personeelslid.functie }}</p>
+  </div>
+</div>
+
+<div *ngIf="selected == 'zaal'">
+  <div *ngFor="let personeelslid of zaalPersoneel" class="row">
+    <p class="col-6 col-sm-10">
+      {{ personeelslid.voornaam }} {{ personeelslid.achternaam }}
+    </p>
+    <p class="col-6 col-sm-2">{{ personeelslid.functie }}</p>
+  </div>
+</div>
