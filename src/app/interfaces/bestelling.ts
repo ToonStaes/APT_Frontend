@@ -5,5 +5,6 @@ export interface Bestelling {
   _id: string;
   bestelNummer: string;
   personeelslid: Personeel;
-  gerecht: Gerecht[];
+  gerechten: Gerecht[];
+  totaalprijs?: number;
 }

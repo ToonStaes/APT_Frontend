@@ -3,19 +3,19 @@
     {
       "_id": "string",
       "naam": "Pizza margherita",
-      "prijs": "9.50",
+      "prijs": 9.50,
       "gerechtNummer": "20211229PM"
     },
     {
       "_id": "string2",
       "naam": "Pizza salami",
-      "prijs": "11.00",
+      "prijs": 11.00,
       "gerechtNummer": "20211229PS"
     },
     {
       "_id": "string3",
       "naam": "Pizza Hawaï",
-      "prijs": "99.99",
+      "prijs": 99.99,
       "gerechtNummer": "20211229PH"
     }
   ],
@@ -45,7 +45,7 @@
   "bestellingen": [
     {
       "_id": "1",
-      "bestelNummer": 1,
+      "bestelNummer": "1",
       "personeelslid": {
         "id": 1,
         "voornaam": "Arne",
@@ -57,20 +57,20 @@
         {
           "_id": "string",
           "naam": "Pizza margherita",
-          "prijs": "9.50",
+          "prijs": 9.50,
           "gerechtNummer": "20211229PM"
         },
         {
           "_id": "string2",
           "naam": "Pizza salami",
-          "prijs": "11.00",
+          "prijs": 11.00,
           "gerechtNummer": "20211229PS"
         }
       ]
     },
     {
       "_id": "2",
-      "bestelNummer": 2,
+      "bestelNummer": "2",
       "personeelslid": {
         "id": 3,
         "voornaam": "Niels",
@@ -82,7 +82,7 @@
         {
           "_id": "string",
           "naam": "Pizza margherita",
-          "prijs": "9.50",
+          "prijs": 9.50,
           "gerechtNummer": "20211229PM"
         }
       ]
