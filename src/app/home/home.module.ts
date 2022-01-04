@@ -5,6 +5,7 @@ import { GerechtListComponent } from './gerecht-list/gerecht-list.component';
 import { PersoneelListComponent } from './personeel-list/personeel-list.component';
 import { BestellingListComponent } from './bestelling-list/bestelling-list.component';
 import { BestellingDetailComponent } from './bestelling-detail/bestelling-detail.component';
+import { BestellingFormComponent } from './bestelling-form/bestelling-form.component';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { BestellingDetailComponent } from './bestelling-detail/bestelling-detail
     GerechtListComponent,
     PersoneelListComponent,
     BestellingListComponent,
-    BestellingDetailComponent
+    BestellingDetailComponent,
+    BestellingFormComponent
   ],
   imports: [
     SharedModule,
