@@ -12,18 +12,23 @@ export class PersoneelListComponent implements OnInit {
   keukenPersoneel: Personeel[] = [];
   zaalPersoneel: Personeel[] = [];
   selected: string = 'all'
+  isLoading: boolean = true;
 
   constructor(private personeelService: PersoneelService) { }
 
   ngOnInit(): void {
+    this.isLoading = true
     this.personeelService.getPersoneel().subscribe(result => {
       this.personeel = result;
+      this.isLoading = false
     })
     this.personeelService.getZaalPersoneel().subscribe((result) => {
       this.zaalPersoneel = result;
+      this.isLoading = false;
     });
     this.personeelService.getKeukenPersoneel().subscribe((result) => {
       this.keukenPersoneel = result;
+      this.isLoading = false;
     });
   }
 

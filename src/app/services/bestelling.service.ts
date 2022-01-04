@@ -14,8 +14,8 @@ export class BestellingService {
     return this.httpClient.get<Bestelling[]>(this.url + 'bestellingen');
   }
 
-  getBestellingByBestelNummer(bestelNummer: string): Observable<Bestelling[]> {
-    return this.httpClient.get<Bestelling[]>(
+  getBestellingByBestelNummer(bestelNummer: string): Observable<Bestelling> {
+    return this.httpClient.get<Bestelling>(
       this.url + 'bestellingen/' + bestelNummer
     );
   }

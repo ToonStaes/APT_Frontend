@@ -9,12 +9,15 @@ import { GerechtService } from 'src/app/services/gerecht.service';
 })
 export class GerechtListComponent implements OnInit {
   gerechten: Gerecht[] = [];
+  isLoading: boolean = true;
 
   constructor(private gerechtService: GerechtService) { }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.gerechtService.getGerechten().subscribe(result => {
       this.gerechten = result;
+      this.isLoading = false;
     })
   }
 

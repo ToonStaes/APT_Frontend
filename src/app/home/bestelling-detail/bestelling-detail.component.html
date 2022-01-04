@@ -1,22 +1,31 @@
 <h1 class="mt-3 text-center">Bestelling {{ bestelling.bestelNummer }}</h1>
 <hr />
 
-<div class="text-right">
-  <button class="btn btn-success mr-auto mb-3">Edit bestelling {{ bestelling.bestelNummer }}</button>
-</div>
+<span *ngIf="isLoading"> Data aan het ophalen. </span>
 
-<p class="mb-3">Personeelslid: {{ bestelling.personeelslid.voornaam }} {{ bestelling.personeelslid.achternaam }}</p>
+<span *ngIf="!isLoading">
+  <div class="text-right">
+    <button class="btn btn-success mr-auto mb-3">
+      Edit bestelling {{ bestelling.bestelNummer }}
+    </button>
+  </div>
 
-<div class="row header">
-  <p class="col-6 col-sm-10">Gerecht</p>
-  <p class="col-6 col-sm-2">Prijs</p>
-</div>
-<div *ngFor="let gerecht of bestelling.gerechten" class="row">
-  <p class="col-6 col-sm-10">{{ gerecht.naam }}</p>
-  <p class="col-6 col-sm-2">€ {{ gerecht.prijs }}</p>
-</div>
-<hr>
-<div class="row">
-  <p class="col-6 col-sm-10">Totaalprijs</p>
-  <p class="col-6 col-sm-2">€ {{ bestelling.totaalprijs }}</p>
-</div>
+  <p class="mb-3">
+    Personeelslid: {{ bestelling.personeelslid.voornaam }}
+    {{ bestelling.personeelslid.achternaam }}
+  </p>
+
+  <div class="row header">
+    <p class="col-6 col-sm-10">Gerecht</p>
+    <p class="col-6 col-sm-2">Prijs</p>
+  </div>
+  <div *ngFor="let gerecht of bestelling.gerechten" class="row">
+    <p class="col-6 col-sm-10">{{ gerecht.naam }}</p>
+    <p class="col-6 col-sm-2">€ {{ gerecht.prijs }}</p>
+  </div>
+  <hr />
+  <div class="row">
+    <p class="col-6 col-sm-10">Totaalprijs</p>
+    <p class="col-6 col-sm-2">€ {{ bestelling.totaalprijs }}</p>
+  </div>
+</span>
