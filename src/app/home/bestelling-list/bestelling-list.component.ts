@@ -35,4 +35,8 @@ export class BestellingListComponent implements OnInit {
     return this.router.navigateByUrl("/bestelling/" + bestelNummer)
   }
 
+  nieuweBestelling() {
+    return this.router.navigateByUrl("/bestellingForm")
+  }
+
 }

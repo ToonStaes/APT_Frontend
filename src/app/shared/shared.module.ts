@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [],
@@ -18,6 +19,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     HttpClientModule,
     MatFormFieldModule,
     MatSelectModule,
+    ReactiveFormsModule,
   ],
   exports: [
     CommonModule,
@@ -27,6 +29,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     HttpClientModule,
     MatFormFieldModule,
     MatSelectModule,
+    ReactiveFormsModule,
   ],
 })
 export class SharedModule {}

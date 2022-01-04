@@ -4,7 +4,7 @@
 <span *ngIf="isLoading"> Data aan het ophalen </span>
 
 <span *ngIf="!isLoading">
-  <button class="btn btn-success">Nieuwe bestelling</button>
+  <button class="btn btn-success mb-3" (click)="nieuweBestelling()">Nieuwe bestelling</button>
   <div class="row header">
     <p class="col-5">Bestellingsnummer</p>
     <p class="col-4">Personeelslid</p>

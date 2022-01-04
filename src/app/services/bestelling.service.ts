@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Bestelling } from '../interfaces/bestelling';
+import { PostBestelling } from '../interfaces/postBestelling';
 
 @Injectable({
   providedIn: 'root',
@@ -20,15 +21,13 @@ export class BestellingService {
     );
   }
 
-  postBestelling(bestelling: Bestelling): Observable<Bestelling> {
+  postBestelling(bestelling: PostBestelling): Observable<Bestelling> {
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json; charset=utf-8');
 
-    return this.httpClient.post<Bestelling>(
-      this.url + '/bestellingen',
-      bestelling,
-      { headers: headers }
-    );
+    return this.httpClient.post<Bestelling>(this.url + 'bestellingen', bestelling, {
+      headers: headers,
+    });
   }
 
   putBestelling(bestelling: Bestelling): Observable<Bestelling> {
@@ -36,15 +35,15 @@ export class BestellingService {
     headers = headers.set('Content-Type', 'application/json; charset=utf-8');
 
     return this.httpClient.put<Bestelling>(
-      this.url + '/bestellingen',
+      this.url + 'bestellingen',
       bestelling,
       { headers: headers }
     );
   }
 
-  deleteBestelling(bestellingsNummer: string): Observable<Bestelling>{
+  deleteBestelling(bestellingsNummer: string): Observable<Bestelling> {
     return this.httpClient.delete<Bestelling>(
-      this.url + '/bestellingen/bestelnummer/' + bestellingsNummer
+      this.url + 'bestellingen/bestelnummer/' + bestellingsNummer
     );
   }
 }
