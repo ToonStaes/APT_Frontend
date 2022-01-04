@@ -7,28 +7,28 @@ import { Personeel } from '../interfaces/personeel';
   providedIn: 'root',
 })
 export class PersoneelService {
-  url: String = 'http://localhost:3000';
+  url: String = 'https://edge-service-server-toonstaes.cloud.okteto.net/';
   constructor(private httpClient: HttpClient) {}
 
   getPersoneel(): Observable<Personeel[]> {
-    return this.httpClient.get<Personeel[]>(this.url + '/personeel');
+    return this.httpClient.get<Personeel[]>(this.url + 'personeel');
   }
 
   getKeukenPersoneel(): Observable<Personeel[]> {
     return this.httpClient.get<Personeel[]>(
-      this.url + '/personeel?functie=Keuken'
+      this.url + 'personeel/functie/keuken'
     );
   }
 
   getZaalPersoneel(): Observable<Personeel[]> {
     return this.httpClient.get<Personeel[]>(
-      this.url + '/personeel?functie=Zaal'
+      this.url + 'personeel/functie/zaal'
     );
   }
 
   getPersoneelslid(personeelsnummer: string): Observable<Personeel> {
     return this.httpClient.get<Personeel>(
-      this.url + '/personeel?personeelsnummer=' + personeelsnummer
+      this.url + 'personeel/' + personeelsnummer
     );
   }
 }

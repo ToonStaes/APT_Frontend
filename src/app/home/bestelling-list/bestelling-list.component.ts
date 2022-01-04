@@ -10,10 +10,12 @@ import { BestellingService } from 'src/app/services/bestelling.service';
 })
 export class BestellingListComponent implements OnInit {
   bestellingen?: Bestelling[]
+  isLoading: boolean = true
 
   constructor(private bestellingService: BestellingService, private router: Router) { }
 
   ngOnInit(): void {
+    this.isLoading = true
     this.bestellingService.getBestellingen().subscribe(result => {
       this.bestellingen = result;
       console.log(this.bestellingen)
@@ -23,6 +25,7 @@ export class BestellingListComponent implements OnInit {
           console.log(gerecht.prijs)
           bestelling.totaalprijs! += gerecht.prijs
         })
+        this.isLoading = false
       })
     })
   }

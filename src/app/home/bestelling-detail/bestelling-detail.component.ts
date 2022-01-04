@@ -12,10 +12,12 @@ import { BestellingService } from 'src/app/services/bestelling.service';
 export class BestellingDetailComponent implements OnInit {
   bestellingen: Bestelling[] = [];
   bestelling: Bestelling = {_id: '', bestelNummer: '', personeelslid: {} as Personeel, gerechten: [], totaalprijs: 0}
+  isLoading: boolean = true
 
   constructor(private bestellingService: BestellingService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.isLoading = true
     // Get bestelNummer from URL
     const bestelNummer = this.route.snapshot.paramMap.get('bestelNummer');
 
@@ -23,8 +25,9 @@ export class BestellingDetailComponent implements OnInit {
       this.bestellingService
         .getBestellingByBestelNummer(bestelNummer)
         .subscribe((result) => {
-          this.bestellingen = result;
-          this.bestelling = this.bestellingen[0]
+          console.log(result)
+          this.bestelling = result;
+          // this.bestelling = this.bestellingen[0]
           console.log(this.bestelling)
           console.log(this.bestelling.gerechten);
           this.bestelling.totaalprijs = 0;
@@ -32,6 +35,7 @@ export class BestellingDetailComponent implements OnInit {
             this.bestelling.totaalprijs! += gerecht.prijs;
             console.log(this.bestelling.totaalprijs);
           });
+          this.isLoading = false
         });
     }
   }

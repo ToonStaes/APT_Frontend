@@ -1,15 +1,26 @@
 <h1 class="mt-3 text-center">Bestellingen</h1>
-<hr>
+<hr />
 
-<div class="row header">
-  <p class="col-5">Bestellingsnummer</p>
-  <p class="col-4">Personeelslid</p>
-  <p class="col-2">Totaalprijs</p>
-</div>
+<span *ngIf="isLoading"> Data aan het ophalen </span>
 
-<div *ngFor="let bestelling of bestellingen" class="row">
-  <p class="col-5 align-self-center">{{ bestelling.bestelNummer }}</p>
-  <p class="col-4 align-self-center">{{ bestelling.personeelslid.voornaam }} {{ bestelling.personeelslid.achternaam}}</p>
-  <p class="col-2 align-self-center">€ {{ bestelling.totaalprijs }}</p>
-  <p class="col-1"><button class="btn" (click)="toDetail(bestelling.bestelNummer)"><i class="fas fa-info-circle"></i></button></p>
-</div>
+<span *ngIf="!isLoading">
+  <div class="row header">
+    <p class="col-5">Bestellingsnummer</p>
+    <p class="col-4">Personeelslid</p>
+    <p class="col-2">Totaalprijs</p>
+  </div>
+
+  <div *ngFor="let bestelling of bestellingen" class="row">
+    <p class="col-5 align-self-center">{{ bestelling.bestelNummer }}</p>
+    <p class="col-4 align-self-center">
+      {{ bestelling.personeelslid.voornaam }}
+      {{ bestelling.personeelslid.achternaam }}
+    </p>
+    <p class="col-2 align-self-center">€ {{ bestelling.totaalprijs }}</p>
+    <p class="col-1">
+      <button class="btn" (click)="toDetail(bestelling.bestelNummer)">
+        <i class="fas fa-info-circle"></i>
+      </button>
+    </p>
+  </div>
+</span>
