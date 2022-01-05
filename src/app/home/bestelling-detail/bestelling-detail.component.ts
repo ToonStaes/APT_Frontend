@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Bestelling } from 'src/app/interfaces/bestelling';
 import { Personeel } from 'src/app/interfaces/personeel';
 import { BestellingService } from 'src/app/services/bestelling.service';
@@ -14,7 +14,7 @@ export class BestellingDetailComponent implements OnInit {
   bestelling: Bestelling = {_id: '', bestelNummer: '', personeelslid: {} as Personeel, gerechten: [], totaalprijs: 0}
   isLoading: boolean = true
 
-  constructor(private bestellingService: BestellingService, private route: ActivatedRoute) { }
+  constructor(private bestellingService: BestellingService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.isLoading = true
@@ -38,6 +38,10 @@ export class BestellingDetailComponent implements OnInit {
           this.isLoading = false
         });
     }
+  }
+
+  editBestelling(bestelling: Bestelling) {
+    this.router.navigateByUrl("editBestelling", {state: {bestelNummer: bestelling.bestelNummer, mode: 'edit'}})
   }
 
 }

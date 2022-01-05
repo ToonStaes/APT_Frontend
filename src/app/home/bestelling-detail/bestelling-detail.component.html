@@ -1,12 +1,13 @@
-<h1 class="mt-3 text-center">Bestelling {{ bestelling.bestelNummer }}</h1>
+<h1 class="mt-3 text-center">Bestelling</h1>
+<h2 class="mt-3 text-center">{{ bestelling.bestelNummer }}</h2>
 <hr />
 
 <span *ngIf="isLoading"> Data aan het ophalen. </span>
 
 <span *ngIf="!isLoading">
   <div class="text-right">
-    <button class="btn btn-success mr-auto mb-3">
-      Edit bestelling {{ bestelling.bestelNummer }}
+    <button class="btn btn-success mr-auto mb-3" (click)="editBestelling(bestelling)">
+      Edit bestelling
     </button>
   </div>
 

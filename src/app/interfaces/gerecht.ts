@@ -1,6 +1,6 @@
 export interface Gerecht {
   _id: string;
   naam: string;
-  gerechtnummer: string;
+  gerechtNummer: string;
   prijs: number;
 }
