@@ -90,17 +90,31 @@ export class BestellingFormComponent implements OnInit {
 
   submit(): void {
     this.isSubmitted = true;
-    if (this.isAdd) {
-      console.log(this.bestellingForm.value.personeelsnummer)
-      this.postBestelling.personeelsNummer = this.bestellingForm.value.personeelsnummer;
-      this.postBestelling.gerechten = this.bestellingGerechtNummers;
-      console.log(this.postBestelling)
-      this.postBestelling$ = this.bestellingService
-        .postBestelling(this.postBestelling)
-        .subscribe((result) => {
-          console.log(result);
-        });
+    if (
+      this.bestellingForm.value.personeelsnummer === '0' ||
+      this.bestellingForm.value.personeelsnummer === null ||
+      this.bestellingForm.value.personeelsnummer === ''
+    ) {
+      alert('Selecteer een personeelslid');
     }
+    else if (this.bestellingGerechtNummers.length === 0) {
+      alert('Selecteer gerechten');
+    }
+    else {
+      if (this.isAdd) {
+        console.log(this.bestellingForm.value.personeelsnummer);
+        this.postBestelling.personeelsNummer =
+          this.bestellingForm.value.personeelsnummer;
+        this.postBestelling.gerechten = this.bestellingGerechtNummers;
+        console.log(this.postBestelling);
+        this.postBestelling$ = this.bestellingService
+          .postBestelling(this.postBestelling)
+          .subscribe((result) => {
+            console.log(result);
+          });
+      }
+    }
+
   }
 
   ToggleInBestelling(gerechtNummer: string) {
@@ -110,5 +124,15 @@ export class BestellingFormComponent implements OnInit {
     } else {
       this.bestellingGerechtNummers.push(gerechtNummer);
     }
+  }
+
+  findAmount(gerechtNummer: string) {
+    let counter = 0;
+    this.bestellingGerechtNummers.forEach((item) => {
+      if (item === gerechtNummer) {
+        counter++;
+      }
+    });
+    return counter;
   }
 }

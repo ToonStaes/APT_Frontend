@@ -31,12 +31,11 @@ export class BestellingListComponent implements OnInit {
   }
 
   toDetail(bestelNummer: string) {
-    console.log(bestelNummer)
     return this.router.navigateByUrl("/bestelling/" + bestelNummer)
   }
 
   nieuweBestelling() {
-    return this.router.navigateByUrl("/bestellingForm")
+    return this.router.navigateByUrl("/addBestelling", {state: {mode: 'add'}})
   }
 
 }

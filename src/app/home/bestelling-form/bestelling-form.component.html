@@ -14,7 +14,11 @@
     <div class="form-group">
       <label class="mr-2">Personeelslid</label>
       <select formControlName="personeelsnummer">
-        <option *ngFor="let personeelslid of personeel" [ngValue]="personeelslid.personeelsnummer">
+        <option value="0" selected>Kies een personeelslid</option>
+        <option
+          *ngFor="let personeelslid of personeel"
+          [ngValue]="personeelslid.personeelsnummer"
+        >
           {{ personeelslid.voornaam }} {{ personeelslid.achternaam }}
         </option>
       </select>
@@ -26,14 +30,14 @@
         class="col-12 col-md-6 mb-2"
       >
         <p
-          class="inBestelling gerecht"
+          class="inBestelling gerecht p-3"
           *ngIf="bestellingGerechtNummers.includes(gerecht.gerechtNummer)"
           (click)="ToggleInBestelling(gerecht.gerechtNummer)"
         >
-          {{ gerecht.naam }}
+        {{ gerecht.naam }}
         </p>
         <p
-          class="nietInBestelling gerecht"
+          class="nietInBestelling gerecht p-3"
           *ngIf="!bestellingGerechtNummers.includes(gerecht.gerechtNummer)"
           (click)="ToggleInBestelling(gerecht.gerechtNummer)"
         >
@@ -45,6 +49,4 @@
     <button (click)="submit()" class="btn-lg btn-primary">Opslaan</button>
   </form>
 </span>
-<span *ngIf="!constDone || !initDone">
-  Data aan het laden
-</span>
+<span *ngIf="!constDone || !initDone"> Data aan het laden </span>
