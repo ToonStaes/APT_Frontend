@@ -30,7 +30,7 @@ export class BestellingService {
     });
   }
 
-  putBestelling(bestelling: Bestelling): Observable<Bestelling> {
+  putBestelling(bestelling: PostBestelling): Observable<Bestelling> {
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json; charset=utf-8');
 

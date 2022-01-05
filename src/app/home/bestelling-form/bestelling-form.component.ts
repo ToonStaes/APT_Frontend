@@ -50,7 +50,7 @@ export class BestellingFormComponent implements OnInit {
   ) {
     this.constDone = false;
     this.isAdd =
-      this.router.getCurrentNavigation()?.extras.state?.mode !== 'edit';
+      this.router.getCurrentNavigation()?.extras.state?.mode === 'add';
     this.isEdit =
       this.router.getCurrentNavigation()?.extras.state?.mode === 'edit';
     this.bestelNummer =
@@ -58,7 +58,7 @@ export class BestellingFormComponent implements OnInit {
 
     if (this.isAdd) {
       this.bestellingForm.setValue({
-        personeelsnummer: '0'
+        personeelsnummer: '0',
       });
       this.constDone = true;
     }
@@ -67,9 +67,22 @@ export class BestellingFormComponent implements OnInit {
       this.bestelling$ = this.bestellingService
         .getBestellingByBestelNummer(this.bestelNummer)
         .subscribe((result) => {
-          this.bestellingForm.setValue({
-            personeelsnummer: result.personeelslid.personeelsnummer,
-          });
+          console.log('bestelling gevonden');
+          console.log(result.personeelslid.personeelsnummer);
+          if (result.personeelslid.personeelsnummer[0] === 'K') {
+            this.bestellingForm.setValue({
+              personeelsnummer: '0',
+            });
+          } else {
+            this.bestellingForm.setValue({
+              personeelsnummer: result.personeelslid.personeelsnummer,
+            });
+          }
+          result.gerechten.forEach(gerecht => {
+            this.bestellingGerechtNummers.push(gerecht.gerechtNummer)
+          })
+
+          this.constDone = true;
         });
     }
   }
@@ -83,6 +96,8 @@ export class BestellingFormComponent implements OnInit {
       this.personeel = result;
       this.initDone = true;
     });
+
+    console.log(this.bestellingForm.value.personeelsnummer);
   }
 
   ngOnDestroy(): void {
@@ -99,25 +114,29 @@ export class BestellingFormComponent implements OnInit {
       this.bestellingForm.value.personeelsnummer === ''
     ) {
       alert('Selecteer een personeelslid');
-    }
-    else if (this.bestellingGerechtNummers.length === 0) {
+    } else if (this.bestellingGerechtNummers.length === 0) {
       alert('Selecteer gerechten');
-    }
-    else {
+    } else {
       if (this.isAdd) {
-        console.log(this.bestellingForm.value.personeelsnummer);
-        this.postBestelling.personeelsNummer =
-          this.bestellingForm.value.personeelsnummer;
+        this.postBestelling.personeelsNummer = this.bestellingForm.value.personeelsnummer;
         this.postBestelling.gerechten = this.bestellingGerechtNummers;
-        console.log(this.postBestelling);
         this.postBestelling$ = this.bestellingService
           .postBestelling(this.postBestelling)
           .subscribe((result) => {
-            console.log(result);
+            this.router.navigateByUrl('/bestelling/' + result.bestelNummer)
           });
       }
+      else if (this.isEdit){
+        this.postBestelling.personeelsNummer = this.bestellingForm.value.personeelsnummer;;
+        this.postBestelling.gerechten = this.bestellingGerechtNummers;
+        this.postBestelling.bestelNummer = this.bestelNummer
+        console.log(this.postBestelling)
+        this.putBestelling$ = this.bestellingService.putBestelling(this.postBestelling).subscribe(result => {
+          console.log(result)
+          this.router.navigateByUrl('/bestelling/' + result.bestelNummer);
+        })
+      }
     }
-
   }
 
   ToggleInBestelling(gerechtNummer: string) {

@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'bestellingen', component: BestellingListComponent },
   { path: 'bestelling/:bestelNummer', component: BestellingDetailComponent },
   { path: 'addBestelling', component: BestellingFormComponent },
-  { path: 'editBestelling/:bestelNummer', component: BestellingFormComponent },
+  { path: 'editBestelling', component: BestellingFormComponent },
 ];
 
 @NgModule({

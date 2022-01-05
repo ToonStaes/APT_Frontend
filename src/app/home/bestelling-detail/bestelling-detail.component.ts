@@ -41,7 +41,7 @@ export class BestellingDetailComponent implements OnInit {
   }
 
   editBestelling(bestelling: Bestelling) {
-    this.router.navigateByUrl("editBestelling/", {state: {bestelNummer: bestelling.bestelNummer, mode: 'edit'}})
+    this.router.navigateByUrl("editBestelling", {state: {bestelNummer: bestelling.bestelNummer, mode: 'edit'}})
   }
 
 }
