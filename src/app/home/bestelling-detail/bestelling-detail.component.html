@@ -5,7 +5,7 @@
 
 <span *ngIf="!isLoading">
   <div class="text-right">
-    <button class="btn btn-success mr-auto mb-3">
+    <button class="btn btn-success mr-auto mb-3" (click)="editBestelling(bestelling)">
       Edit bestelling {{ bestelling.bestelNummer }}
     </button>
   </div>

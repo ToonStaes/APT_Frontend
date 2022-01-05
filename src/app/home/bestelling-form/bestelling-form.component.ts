@@ -57,6 +57,9 @@ export class BestellingFormComponent implements OnInit {
       this.router.getCurrentNavigation()?.extras.state?.bestelNummer;
 
     if (this.isAdd) {
+      this.bestellingForm.setValue({
+        personeelsnummer: '0'
+      });
       this.constDone = true;
     }
     if (this.bestelNummer != null && this.bestelNummer != '') {

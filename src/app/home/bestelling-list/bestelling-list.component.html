@@ -7,20 +7,23 @@
   <button class="btn btn-success mb-3" (click)="nieuweBestelling()">Nieuwe bestelling</button>
   <div class="row header">
     <p class="col-5">Bestellingsnummer</p>
-    <p class="col-4">Personeelslid</p>
+    <p class="col-3">Personeelslid</p>
     <p class="col-2">Totaalprijs</p>
   </div>
 
   <div *ngFor="let bestelling of bestellingen" class="row">
     <p class="col-5 align-self-center">{{ bestelling.bestelNummer }}</p>
-    <p class="col-4 align-self-center">
+    <p class="col-3 align-self-center">
       {{ bestelling.personeelslid.voornaam }}
       {{ bestelling.personeelslid.achternaam }}
     </p>
     <p class="col-2 align-self-center">€ {{ bestelling.totaalprijs }}</p>
-    <p class="col-1">
+    <p class="col-2">
       <button class="btn" (click)="toDetail(bestelling.bestelNummer)">
-        <i class="fas fa-info-circle"></i>
+        <i class="fas fa-info-circle infoIcon"></i>
+      </button>
+      <button class="btn" (click)="deleteBestelling(bestelling)">
+        <i class="far fa-trash-alt deleteIcon"></i>
       </button>
     </p>
   </div>

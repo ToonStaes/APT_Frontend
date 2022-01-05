@@ -6,3 +6,19 @@ h1 {
   background-color: lightgrey;
   font-weight: bold;
 }
+
+.deleteIcon {
+  color: red;
+}
+
+.deleteIcon:hover {
+  color: maroon;
+}
+
+.infoIcon {
+  color: #0275d8;
+}
+
+.infoIcon:hover {
+  color: black;
+}
