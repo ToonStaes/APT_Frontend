@@ -24,7 +24,7 @@ export class BestellingFormComponent implements OnInit {
   personeel: Personeel[] = [];
   postBestelling: PostBestelling = {
     bestelNummer: '',
-    personeelsnummer: '',
+    personeelsNummer: '',
     gerechten: [],
   };
   initDone: boolean = false;
@@ -92,13 +92,12 @@ export class BestellingFormComponent implements OnInit {
     this.isSubmitted = true;
     if (this.isAdd) {
       console.log(this.bestellingForm.value.personeelsnummer)
-      this.postBestelling.personeelsnummer = this.bestellingForm.value.personeelsnummer;
+      this.postBestelling.personeelsNummer = this.bestellingForm.value.personeelsnummer;
       this.postBestelling.gerechten = this.bestellingGerechtNummers;
       console.log(this.postBestelling)
       this.postBestelling$ = this.bestellingService
         .postBestelling(this.postBestelling)
         .subscribe((result) => {
-          console.log("great success")
           console.log(result);
         });
     }

@@ -1,5 +1,5 @@
 export interface PostBestelling {
   bestelNummer: string;
-  personeelsnummer: string;
+  personeelsNummer: string;
   gerechten: string[];
 }
