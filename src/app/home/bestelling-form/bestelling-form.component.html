@@ -23,7 +23,7 @@
         </option>
       </select>
     </div>
-    <div class="row" id="gerechten">
+    <div class="row">
       <div
         id="gerechten"
         *ngFor="let gerecht of gerechten"
@@ -46,7 +46,7 @@
       </div>
     </div>
 
-    <button (click)="submit()" class="btn-lg btn-primary">Opslaan</button>
+    <button id="addBestellingBtn" (click)="submit()" class="btn-lg btn-primary">Opslaan</button>
   </form>
 </span>
 <span *ngIf="!constDone || !initDone"> Data aan het laden </span>
