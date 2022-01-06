@@ -8,7 +8,7 @@ import { PostBestelling } from '../interfaces/postBestelling';
   providedIn: 'root',
 })
 export class BestellingService {
-  url: String = 'https://edge-service-server-toonstaes.cloud.okteto.net/';
+  url: String = 'https://edge-service-server-arnehus.cloud.okteto.net/';
   constructor(private httpClient: HttpClient) {}
 
   getBestellingen(): Observable<Bestelling[]> {
@@ -25,9 +25,13 @@ export class BestellingService {
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json; charset=utf-8');
 
-    return this.httpClient.post<Bestelling>(this.url + 'bestellingen', bestelling, {
-      headers: headers,
-    });
+    return this.httpClient.post<Bestelling>(
+      this.url + 'bestellingen',
+      bestelling,
+      {
+        headers: headers,
+      }
+    );
   }
 
   putBestelling(bestelling: PostBestelling): Observable<Bestelling> {
