@@ -4,5 +4,7 @@ exports.config = {
   specs: ['spec.js'],
   capabilities: {
     'browserName': 'firefox'
-  }
+  },
+  highlightDelay: 1000,
+  directConnect: false
 }

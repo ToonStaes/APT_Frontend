@@ -6,12 +6,12 @@
 
 <span *ngIf="!isLoading">
   <div class="text-right">
-    <button class="btn btn-success mr-auto mb-3" (click)="editBestelling(bestelling)">
+    <button id="editBestellingBtn" class="btn btn-success mr-auto mb-3" (click)="editBestelling(bestelling)">
       Edit bestelling
     </button>
   </div>
 
-  <p class="mb-3">
+  <p id="personeelslid" class="mb-3">
     Personeelslid: {{ bestelling.personeelslid.voornaam }}
     {{ bestelling.personeelslid.achternaam }}
   </p>
@@ -20,7 +20,7 @@
     <p class="col-6 col-sm-10">Gerecht</p>
     <p class="col-6 col-sm-2">Prijs</p>
   </div>
-  <div *ngFor="let gerecht of bestelling.gerechten" class="row">
+  <div id="gerechten" *ngFor="let gerecht of bestelling.gerechten" class="row">
     <p class="col-6 col-sm-10">{{ gerecht.naam }}</p>
     <p class="col-6 col-sm-2">€ {{ gerecht.prijs }}</p>
   </div>

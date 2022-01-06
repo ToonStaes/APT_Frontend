@@ -12,17 +12,17 @@
   </div>
 
   <div *ngFor="let bestelling of bestellingen" class="row" id="bestellingen">
-    <p id="bestellingnummer" class="col-5 align-self-center">{{ bestelling.bestelNummer }}</p>
+    <p id="bestelnummer" class="col-5 align-self-center">{{ bestelling.bestelNummer }}</p>
     <p class="col-3 align-self-center">
       {{ bestelling.personeelslid.voornaam }}
       {{ bestelling.personeelslid.achternaam }}
     </p>
     <p class="col-2 align-self-center">€ {{ bestelling.totaalprijs }}</p>
     <p class="col-2">
-      <button class="btn" id="detailBtn" (click)="toDetail(bestelling.bestelNummer)">
+      <button class="btn" id="detailBestellingBtn" (click)="toDetail(bestelling.bestelNummer)">
         <i class="fas fa-info-circle infoIcon"></i>
       </button>
-      <button class="btn" id="deleteBtn" (click)="deleteBestelling(bestelling)">
+      <button class="btn" id="deleteBestellingBtn" (click)="deleteBestelling(bestelling)">
         <i class="far fa-trash-alt deleteIcon"></i>
       </button>
     </p>
