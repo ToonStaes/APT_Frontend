@@ -7,7 +7,7 @@ import { Personeel } from '../interfaces/personeel';
   providedIn: 'root',
 })
 export class PersoneelService {
-  url: String = 'https://edge-service-server-arnehus.cloud.okteto.net/';
+  url: String = 'https://edge-service-server-toonstaes.cloud.okteto.net/';
   constructor(private httpClient: HttpClient) {}
 
   getPersoneel(): Observable<Personeel[]> {
