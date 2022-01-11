@@ -8,7 +8,7 @@ import { PostBestelling } from '../interfaces/postBestelling';
   providedIn: 'root',
 })
 export class BestellingService {
-  url: String = 'https://edge-service-server-toonstaes.cloud.okteto.net/';
+  url: String = 'https://edge-service-server-arnehus.cloud.okteto.net/';
   constructor(private httpClient: HttpClient) {}
 
   getBestellingen(): Observable<Bestelling[]> {

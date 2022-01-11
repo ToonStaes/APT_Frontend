@@ -7,7 +7,7 @@ import { Gerecht } from '../interfaces/gerecht';
   providedIn: 'root',
 })
 export class GerechtService {
-  url: String = 'https://edge-service-server-toonstaes.cloud.okteto.net/';
+  url: String = 'https://edge-service-server-arnehus.cloud.okteto.net/';
   constructor(private httpClient: HttpClient) {}
 
   getGerechten(): Observable<Gerecht[]> {
